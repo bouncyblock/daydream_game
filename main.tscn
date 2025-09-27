@@ -1,7 +1,7 @@
-[gd_scene load_steps=19 format=4 uid="uid://blonexlb3jhe6"]
 
 [ext_resource type="Script" uid="uid://c7qeft36mugkh" path="res://player.gd" id="1_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://k5h20fk4703c" path="res://icon.svg" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://mg0xm8iyq2e1" path="res://animal.tscn" id="3_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://cfvb0jpmcriur" path="res://assets/Rocky Roads/Tilesets/tileset_forest.png" id="3_h2yge"]
 [ext_resource type="Script" uid="uid://2gnkm6dmikgw" path="res://tile_map_layer.gd" id="4_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://cnxjvbid2y5m6" path="res://assets/Rocky Roads/Backgrounds/clouds.png" id="4_7mycd"]
@@ -509,7 +509,7 @@ sources/6 = SubResource("TileSetAtlasSource_w48qg")
 [node name="Main" type="Node"]
 
 [node name="player" type="CharacterBody2D" parent="."]
-position = Vector2(-3, 0)
+position = Vector2(42, 20)
 script = ExtResource("1_0xm2m")
 
 [node name="Icon" type="Sprite2D" parent="player"]
@@ -521,8 +521,7 @@ texture = ExtResource("1_ig7tw")
 position = Vector2(57, -143)
 shape = SubResource("RectangleShape2D_0xm2m")
 
-[node name="Camera2D" type="Camera2D" parent="player"]
-position = Vector2(56, -140)
+
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(17, 118)
