@@ -1,6 +1,6 @@
-
-
 extends CharacterBody2D
+
+@onready var game_manager: Node = %gameManager
 
 var push_force = 80.0
 
@@ -12,10 +12,16 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
+		
+	# print("doublejump status:" + str(game_manager.hasDoubleJump))
+	
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_up") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+	
+	if Input.is_action_just_pressed("ui_up") and game_manager.hasDoubleJump == true and not is_on_floor():
+		velocity.y = JUMP_VELOCITY
+		game_manager.hasDoubleJump = false
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.

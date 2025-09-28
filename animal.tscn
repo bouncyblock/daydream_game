@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://mg0xm8iyq2e1"]
+[gd_scene load_steps=4 format=3 uid="uid://mg0xm8iyq2e1"]
 
+[ext_resource type="Script" uid="uid://dwiq0gcyn4ctq" path="res://animal.gd" id="1_23vr7"]
 [ext_resource type="Texture2D" uid="uid://dd0ss2yorfidd" path="res://assets/Rocky Roads/Enemies/crab.png" id="1_stvu6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_23vr7"]
 size = Vector2(20, 12)
 
 [node name="animal" type="RigidBody2D"]
+script = ExtResource("1_23vr7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_stvu6")
@@ -15,3 +17,5 @@ region_rect = Rect2(0, 0, 32.303394, 17.554321)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_23vr7")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

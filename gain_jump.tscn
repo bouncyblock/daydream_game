@@ -1,3 +1,13 @@
-[gd_scene format=3 uid="uid://c6ln3hduxrsse"]
+[gd_scene load_steps=3 format=3 uid="uid://c6ln3hduxrsse"]
 
-[node name="gain_jump" type="CollisionShape2D"]
+[ext_resource type="Script" uid="uid://dmbxnwpf3mgu8" path="res://gain_jump.gd" id="1_2c2ui"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gmwmb"]
+
+[node name="gain_jump" type="Area2D"]
+script = ExtResource("1_2c2ui")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_gmwmb")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
