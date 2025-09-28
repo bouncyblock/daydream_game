@@ -1,6 +1,5 @@
-[gd_scene load_steps=4 format=3 uid="uid://bvd7c4eaubb4q"]
+[gd_scene load_steps=3 format=3 uid="uid://bvd7c4eaubb4q"]
 
-[ext_resource type="Texture2D" uid="uid://k5h20fk4703c" path="res://icon.svg" id="1_8w5og"]
 [ext_resource type="Script" uid="uid://cx0nsflijf5n3" path="res://scripts/animal_sacrifice.gd" id="1_fpxet"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_adm0k"]
@@ -10,7 +9,6 @@ script = ExtResource("1_fpxet")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.16015626, 0.16015626)
-texture = ExtResource("1_8w5og")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_adm0k")

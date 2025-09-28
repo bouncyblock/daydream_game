@@ -20,7 +20,7 @@ func _on_body_entered(body: Node) -> void:
 		original_position = body.original_position
 		
 		body.queue_free()
-		respawn_timer.start()
+		#respawn_timer.start()
 
 func _on_respawn_timeout() -> void:
 	var new_body = body_scene.instantiate()
