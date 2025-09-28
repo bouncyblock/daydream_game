@@ -18,6 +18,9 @@ func _on_body_entered(body: Node) -> void:
 		if game_manager.timesDied >= 1:
 			game_manager.giveAbilityDash()
 			print("in loop")
+		if game_manager.timesDied >= 2:
+			game_manager.giveWallJump()
+		
 		game_manager.timesDied += 1
 		print("timesDied" + str(game_manager.timesDied))
 		# Get the original spawn position from the body

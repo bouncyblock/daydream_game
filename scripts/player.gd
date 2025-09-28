@@ -4,7 +4,7 @@ extends CharacterBody2D
 
 var push_force = 40.0
 var jumps_used = 0
-var acceleration = 750.0
+var acceleration = 730.0
 var deceleration = 740.0
 var max_speed = 200.0
 const JUMP_VELOCITY = -250.0
@@ -13,6 +13,16 @@ var usedDash = false
 
 func _ready():
 	starting_location = global_position
+
+func is_touching_wall() -> bool:
+	return is_touching_wall_left() or is_touching_wall_right()
+
+func is_touching_wall_left() -> bool:
+	return test_move(transform, Vector2(-1, 0))
+
+func is_touching_wall_right() -> bool:
+	return test_move(transform, Vector2(1, 0))
+
 
 func _physics_process(delta: float) -> void:
 	# Apply gravity
@@ -29,7 +39,21 @@ func _physics_process(delta: float) -> void:
 		if (!game_manager.hasDoubleJump and jumps_used < 1) or (game_manager.hasDoubleJump and jumps_used < 2):
 			velocity.y = JUMP_VELOCITY
 			jumps_used += 1
+		elif is_touching_wall() and game_manager.hasWallJump:
+			velocity.y = JUMP_VELOCITY
+			if is_touching_wall_left():
+				velocity.x = max_speed
+			elif is_touching_wall_right():
+				velocity.x = -max_speed
+				jumps_used = 1
+				usedDash = false
+
 	
+	if Input.is_action_just_pressed("debug"):
+		game_manager.timesDied += 1
+		game_manager.giveAbility()
+		game_manager.giveAbilityDash()
+		game_manager.giveWallJump()
 	
 	# Handle horizontal movement with momentum
 	var direction := Input.get_axis("left", "right")

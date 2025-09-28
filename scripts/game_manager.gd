@@ -2,6 +2,7 @@ extends Node
 
 
 var hasDoubleJump = false
+var hasWallJump = false
 var hasDash = false
 var timesDied = 0
 
@@ -12,6 +13,10 @@ func giveAbility():
 func giveAbilityDash():
 	print("the ability will be given yippee! (this is for dash)")
 	hasDash = true
+
+func giveWallJump():
+	print("the ability will be given yippee! (this is for wall)")
+	hasWallJump = true
 
 func stop_all_audio():     # Recursively stop all audio playing in the scene tree
 	_stop_audio_in_node(get_tree().root)
