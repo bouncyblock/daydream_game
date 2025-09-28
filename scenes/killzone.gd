@@ -10,3 +10,4 @@ func _on_body_entered(body: Node) -> void:
 		# body.velocity = Vector2.ZERO  # Reset movement
 		# game_manager.stop_all_audio()
 		audio.play()
+		Engine.time_scale = 1

@@ -41,7 +41,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, deceleration * delta)
 
-	if Input.is_action_just_pressed("dash") and !usedDash:
+	if Input.is_action_just_pressed("dash") and !usedDash and game_manager.hasDash:
 		velocity.x = move_toward(velocity.x * 3.5, direction * max_speed * 2, acceleration * delta * 2)
 		usedDash = true
 	# Move the character

@@ -15,7 +15,11 @@ func _on_body_entered(body: Node) -> void:
 	if body is RigidBody2D:
 		print("DIE ALREADY")
 		game_manager.giveAbility()
-		
+		if game_manager.timesDied >= 1:
+			game_manager.giveAbilityDash()
+			print("in loop")
+		game_manager.timesDied += 1
+		print("timesDied" + str(game_manager.timesDied))
 		# Get the original spawn position from the body
 		original_position = body.original_position
 		
