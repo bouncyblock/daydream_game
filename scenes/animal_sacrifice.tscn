@@ -1,6 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bvd7c4eaubb4q"]
+[gd_scene load_steps=6 format=3 uid="uid://bvd7c4eaubb4q"]
 
 [ext_resource type="Script" uid="uid://cx0nsflijf5n3" path="res://scripts/animal_sacrifice.gd" id="1_fpxet"]
+[ext_resource type="AudioStream" uid="uid://dsluhicxgkeda" path="res://music/9 chords/1Chords.mp3" id="2_1dpfk"]
+[ext_resource type="AudioStream" uid="uid://dyex0cj30pgar" path="res://music/9 chords/4Chords.mp3" id="3_pbqnf"]
+[ext_resource type="AudioStream" uid="uid://bcbmbmjsgabcc" path="res://music/9 chords/9Chords.mp3" id="4_cgw6p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_adm0k"]
 
@@ -12,5 +15,14 @@ scale = Vector2(0.16015626, 0.16015626)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_adm0k")
+
+[node name="first" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_1dpfk")
+
+[node name="fourth" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_pbqnf")
+
+[node name="ninth" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_cgw6p")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -2,6 +2,12 @@ extends Area2D
 
 @onready var game_manager: Node = %gameManager
 @onready var respawn_timer: Timer = Timer.new()
+@onready var label_4: Label = $"Label4"
+@onready var first: AudioStreamPlayer2D = $first
+@onready var fourth: AudioStreamPlayer2D = $fourth
+@onready var ninth: AudioStreamPlayer2D = $ninth
+
+
 var body_scene: PackedScene = preload("res://scenes/animal.tscn")
 var original_position: Vector2
 
@@ -14,12 +20,19 @@ func _ready() -> void:
 func _on_body_entered(body: Node) -> void:
 	if body is RigidBody2D:
 		print("DIE ALREADY")
-		game_manager.giveAbility()
+		
+		if game_manager.timesDied >= 0:
+			game_manager.giveAbility()
+			first.play()
+		
 		if game_manager.timesDied >= 1:
 			game_manager.giveAbilityDash()
+			fourth.play()
 			print("in loop")
 		if game_manager.timesDied >= 2:
 			game_manager.giveWallJump()
+			ninth.play()
+			label_4.text = "Wealth. Dough. Power.\n I had everything the world had to offer...\n Do you want my treasure? Find it, I left all my treasure behind,\n the one dough I've hidden it somewhere."
 		
 		game_manager.timesDied += 1
 		print("timesDied" + str(game_manager.timesDied))
