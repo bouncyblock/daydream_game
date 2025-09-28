@@ -1,21 +1,22 @@
-[gd_scene load_steps=30 format=4 uid="uid://blonexlb3jhe6"]
+[gd_scene load_steps=31 format=4 uid="uid://blonexlb3jhe6"]
 
-[ext_resource type="Script" uid="uid://c7qeft36mugkh" path="res://player.gd" id="1_0xm2m"]
-[ext_resource type="Script" uid="uid://cbowqbps30nbw" path="res://game_manager.gd" id="1_2cqfq"]
+[ext_resource type="Script" uid="uid://c7qeft36mugkh" path="res://scripts/player.gd" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://cbowqbps30nbw" path="res://scripts/game_manager.gd" id="1_2cqfq"]
 [ext_resource type="Texture2D" uid="uid://k5h20fk4703c" path="res://icon.svg" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://cfvb0jpmcriur" path="res://assets/Rocky Roads/Tilesets/tileset_forest.png" id="3_h2yge"]
-[ext_resource type="Script" uid="uid://2gnkm6dmikgw" path="res://tile_map_layer.gd" id="4_1bvp3"]
+[ext_resource type="Script" uid="uid://2gnkm6dmikgw" path="res://scripts/tile_map_layer.gd" id="4_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://cnxjvbid2y5m6" path="res://assets/Rocky Roads/Backgrounds/clouds.png" id="4_7mycd"]
 [ext_resource type="Texture2D" uid="uid://d8hb05kw14q1" path="res://assets/Rocky Roads/Deco/bush.png" id="5_272bh"]
 [ext_resource type="Texture2D" uid="uid://d3yuj2ccqtm1t" path="res://assets/Rocky Roads/Backgrounds/desert_a.png" id="6_kek77"]
 [ext_resource type="Texture2D" uid="uid://cha8fagkt5tqs" path="res://assets/Rocky Roads/Deco/lava.png" id="7_4c57u"]
 [ext_resource type="Texture2D" uid="uid://bw5ii05msmrah" path="res://assets/Rocky Roads/Deco/rock.png" id="8_efxa6"]
 [ext_resource type="Texture2D" uid="uid://cisqaqxrgfy2o" path="res://assets/Rocky Roads/Enemies/quicksand_8frames.png" id="9_efxa6"]
-[ext_resource type="PackedScene" uid="uid://i3ti2l861x4j" path="res://killzone.tscn" id="10_4c57u"]
+[ext_resource type="PackedScene" uid="uid://i3ti2l861x4j" path="res://scenes/killzone.tscn" id="10_4c57u"]
 [ext_resource type="Texture2D" uid="uid://13546jgxr8ce" path="res://assets/Rocky Roads/Deco/tree_b.png" id="10_dg77c"]
 [ext_resource type="Texture2D" uid="uid://calww2yofdcrk" path="res://assets/Rocky Roads/Deco/tree.png" id="11_ycdy4"]
-[ext_resource type="PackedScene" uid="uid://bvd7c4eaubb4q" path="res://animal_sacrifice.tscn" id="14_vivmo"]
-[ext_resource type="PackedScene" uid="uid://mg0xm8iyq2e1" path="res://animal.tscn" id="15_2cqfq"]
+[ext_resource type="PackedScene" uid="uid://bvd7c4eaubb4q" path="res://scenes/animal_sacrifice.tscn" id="14_vivmo"]
+[ext_resource type="PackedScene" uid="uid://mg0xm8iyq2e1" path="res://scenes/animal.tscn" id="15_2cqfq"]
+[ext_resource type="AudioStream" uid="uid://dpg4gf8x4moyr" path="res://music/Family.mp3" id="17_muem4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
 size = Vector2(7.000122, 6)
@@ -599,10 +600,12 @@ shape = SubResource("RectangleShape2D_0xm2m")
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 position = Vector2(124, -57)
+zoom = Vector2(2.99, 2.99)
 limit_left = 14
 limit_top = -9999792
 limit_right = 10001323
 limit_bottom = 808
+position_smoothing_enabled = true
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(13, 82)
@@ -616,8 +619,12 @@ position = Vector2(253, 721)
 [node name="kill" type="CollisionShape2D" parent="TileMapLayer/killzone"]
 shape = SubResource("WorldBoundaryShape2D_efxa6")
 
-[node name="animalSacrifice" parent="." instance=ExtResource("14_vivmo")]
-position = Vector2(589, 357)
+[node name="animalSacrifice" parent="TileMapLayer" instance=ExtResource("14_vivmo")]
+position = Vector2(576, 275)
 
-[node name="animal" parent="." instance=ExtResource("15_2cqfq")]
-position = Vector2(501, 343)
+[node name="animal" parent="TileMapLayer" instance=ExtResource("15_2cqfq")]
+position = Vector2(488, 261)
+
+[node name="background_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_muem4")
+autoplay = true

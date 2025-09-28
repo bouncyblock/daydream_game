@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c6ln3hduxrsse"]
 
-[ext_resource type="Script" uid="uid://dmbxnwpf3mgu8" path="res://gain_jump.gd" id="1_2c2ui"]
+[ext_resource type="Script" uid="uid://dmbxnwpf3mgu8" path="res://scripts/gain_jump.gd" id="1_2c2ui"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gmwmb"]
 

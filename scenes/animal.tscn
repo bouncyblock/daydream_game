@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://mg0xm8iyq2e1"]
 
-[ext_resource type="Script" uid="uid://dwiq0gcyn4ctq" path="res://animal.gd" id="1_23vr7"]
+[ext_resource type="Script" uid="uid://dwiq0gcyn4ctq" path="res://scripts/animal.gd" id="1_23vr7"]
 [ext_resource type="Texture2D" uid="uid://dd0ss2yorfidd" path="res://assets/Rocky Roads/Enemies/crab.png" id="1_stvu6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_23vr7"]

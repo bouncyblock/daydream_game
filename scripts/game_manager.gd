@@ -1,7 +1,6 @@
 extends Node
 
 
-
 var hasDoubleJump = false
 
 func giveAbility():

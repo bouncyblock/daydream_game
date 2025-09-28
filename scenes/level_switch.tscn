@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxhgln7ib30ct"]
+
+[ext_resource type="Texture2D" uid="uid://bbjvattl6x7ag" path="res://assets/Rocky Roads/Enemies/tornado.png" id="1_cw3fu"]
+[ext_resource type="Script" uid="uid://hk37pyfvddei" path="res://scripts/level_switch.gd" id="1_drc63"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_drc63"]
+size = Vector2(32, 29)
+
+[node name="level_switch" type="Area2D"]
+script = ExtResource("1_drc63")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 0)
+shape = SubResource("RectangleShape2D_drc63")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_cw3fu")
+region_enabled = true
+region_rect = Rect2(0, 0, 52, 48)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
